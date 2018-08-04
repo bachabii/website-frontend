@@ -14,6 +14,12 @@ const aboutwebsite =
   "This 'website' consists of a frontend app (this React UI), a backend app (a Node.js API service), and a backend email service (using Go).  " +
   "The UI communicates with the API service through the use of an HTTP REST API.  " +
   "The API service communicates with the email service through the use of RabbitMQ.  <br /><br />" +
+  "<strong>UI Code:</strong>  <a href='https://github.com/bachabii/website-frontend'>https://github.com/bachabii/website-frontend</a> <br />" +
+  "<strong>API Code:</strong>  <a href='https://github.com/bachabii/website-backend'>https://github.com/bachabii/website-backend</a> <br />" +
+  "<strong>Email Service Code:</strong>  TBD <br /><br />" +
+  "<strong>TODO:</strong>  <br />" +
+  "- Fix Menu sidebar display on mobile devices <br />" + 
+  "- Finish connection emailing functionality with my Go email micro-service <br /><br />" +
   "<strong>Technologies Utilized:</strong>  <br />" +
   " - React, React Router v4, Node.js, Mongo/Mongoose, Go, RabbitMQ, Heroku <br /><br />" +
   "<strong>Content Information:</strong>  <br />" +

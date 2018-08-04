@@ -141,7 +141,6 @@ class ContactPage extends React.Component {
       subject: '',
       content: '',
       open: false,
-      openError: false,
       status: null,
       validEmail: true,
       emailLabel: 'Your E-mail'
@@ -168,21 +167,13 @@ class ContactPage extends React.Component {
   handleSubmit() {
     this.postEmail();
 
-    if (this.state.status === 200) {
-      this.setState({
-        email: '',
-        subject: '',
-        content: '',
-        status: null,
-        open: true,
-        openError: false
-      });
-    } else {
-      this.setState({
-        openError: true,
-        open: false
-      });
-    }
+    this.setState({
+      email: '',
+      subject: '',
+      content: '',
+      status: null,
+      open: true,
+    });
   }
 
   handleClose = (event, reason) => {
@@ -214,14 +205,11 @@ class ContactPage extends React.Component {
   postEmail() {
     fetch(`${API_ROOT}/email`, {
       method: 'POST',
+      mode: 'cors',
       body: JSON.stringify(this.state),
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(res => {
-      this.setState({
-        status: res.status
-      });
     });
   }
 
@@ -235,6 +223,7 @@ class ContactPage extends React.Component {
           </CardHeader>
           <CardBody>
             Email: ibac7889@gmail.com
+            <br></br>
             Phone: (301) 717 - 1297
           </CardBody>
         </Card>

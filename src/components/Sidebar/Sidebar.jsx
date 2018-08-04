@@ -83,9 +83,11 @@ const Sidebar = ({ ...props }) => {
         <Drawer
           variant="temporary"
           anchor="right"
+          open={props.open}
           classes={{
             paper: classes.drawerPaper
           }}
+          onClose={props.handleDrawerToggle}
           ModalProps={{
             keepMounted: true // Better open performance on mobile.
           }}

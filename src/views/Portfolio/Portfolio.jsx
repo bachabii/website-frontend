@@ -92,7 +92,7 @@ class SimpleDialog extends React.Component {
   };
 
   render() {
-    const { classes, onClose, selectedValue, ...other } = this.props;
+    const { classes, onClose, selectedValue, showGit, ...other } = this.props;
     return (
       <Dialog maxWidth={false} onClose={this.handleClose} aria-labelledby="simple-dialog-title" {...other}>
         <div>
@@ -109,15 +109,17 @@ class SimpleDialog extends React.Component {
               <Divider />
               {this.renderChips(selectedValue)}
             </CardContent>
+            {showGit &&
             <CardActions>
               <Button
-                size="small"
-                color="primary"
-                href={this.getUrl(selectedValue)}
+              size="small"
+              color="primary"
+              href={this.getUrl(selectedValue)}
               >
                 GitHub
               </Button>
             </CardActions>
+            }
           </Card>
         </div>
       </Dialog>
@@ -159,7 +161,7 @@ class PortfolioPage extends React.Component {
           <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }} />
           {portfolio.map(item => (
             <GridListTile key={item.lrgurl}>
-              <img src={item.thumburl} />
+              <img src={item.thumburl} alt={item.title}/>
               <GridListTileBar
                 title={item.title}
                 subtitle={<span>by: {'ismael bachabi'}</span>}
@@ -179,6 +181,7 @@ class PortfolioPage extends React.Component {
 
         <SimpleDialogWrapped
           selectedValue={this.state.selectedValue}
+          showGit={this.state.selectedValue.giturl !== null}
           open={this.state.open}
           onClose={this.handleClose}
         />
